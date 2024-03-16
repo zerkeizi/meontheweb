@@ -8,26 +8,62 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  /* display: flex; */
+  /* place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url('../../public/space.gif');
+  color: rgb(255, 0, 191);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+section {
+  display: flex;
+  justify-content: center;
+}
+
+#banner {
+  text-align: center;
+  background-color: #222;
+  padding: 0px 100px;
+}
+
+#banner h2 span {
+  display: none;
+}
+
+#banner:hover h2 span {
+  display: inline;
+}
+
+#banner h2 em {
+  font-style: normal;
+  font-weight: 600;
+  color: powderblue;
+}
+
+.banner-footer {
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+
+.banner-footer p {
+  margin: 0;  
+}
+
+.ad {
+  padding: 15px 80px;
+  text-transform: uppercase;
+  align-self: center;
+  text-align: center;
+  color: #000;
+  border: 3px solid #070707;
+  border: 3px solid #070707;
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  background-color: #cccccc;
 }
