@@ -1,15 +1,23 @@
-dialog {
+.speech-balloon {
   background-color: #ffffe1;
   border-radius: 8px;
   border: 2px solid #000;
   text-align: left;
+  color: #000;
+  padding: 8px;
+  position: absolute;
 }
 
-dialog strong {
+.speech-balloon strong {
   display: block;
 }
 
-dialog button {
+.speech-balloon p {
+  margin: 0;
+}
+
+.speech-balloon button {
+  background-color: red;
   position: absolute;
   right: 10px;
   top: 10px;

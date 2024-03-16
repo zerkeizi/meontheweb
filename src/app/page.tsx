@@ -1,3 +1,4 @@
+'use client'
 import Cover from "@/components/Cover";
 import Image from "next/image";
 
