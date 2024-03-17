@@ -4,10 +4,11 @@ import { useState } from "react";
 
 export default function Cover() {
   const randomMessage = 'String'
+  const [isSpeaking, setSpeaking] = useState<boolean>(false)
   const [speechOption, setSpeechOption] = useState<number>(0)
 
   const handleSpeak = () => {
-    console.log('clcickckl')
+    setSpeaking(!isSpeaking)
     setSpeechOption(1)
   }
   
@@ -16,10 +17,10 @@ export default function Cover() {
       <div id="banner">
         <h2>
           <p>Hell<span>o</span>, world!</p>
-          <p>Welcome to my page on the <em onClick={handleSpeak}>WWW</em></p>
+          <p>Welcome to my page on the <em onClick={() => handleSpeak()}>WWW</em></p>
         </h2>
         <p id="banner-text">{ randomMessage }</p>
-        <Mickey speechOption={speechOption}/>
+        <Mickey speaking={isSpeaking} setSpeaking={setSpeaking} speechOption={speechOption}/>
         <div className="banner-footer">
           <p>this site has been optmized for:</p>
           <div className="ad">

@@ -1,26 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
+import { speeches } from "./speeches";
 
 type ISpeechBalloon = {
-  title: string
-  body: string
   speechOption: number
+  open?: boolean
+  onClose: Function
+  fn?: Function
 }
 
+
 export default function SpeechBalloon(props: ISpeechBalloon) {
-  const [isOpen, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const handleClose = () => {
-    // setOpen(!isOpen)
+    setOpen(false)
+    props.onClose(false)
   }
 
-  const txt = props.body.split('\\n').map((t, i) => <p key={i}>{t}</p>); 
-  return (
-    <div className="speech-balloon">
+  useEffect(() => {
+    if (props.open) {
+      setOpen(props.open)
+    }
+
+  }, [props.open])
+  
+  const speech = speeches.find(s => s.id == props.speechOption)
+  if (speech && open) {
+    return (
+      <div className="speech-balloon">
       <button className="close" onClick={handleClose}></button>
-      <strong>{ props.title }</strong>
-      { txt }
-    </div>
-  )
+      <strong>{ speech.title }</strong>
+        { speech.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
+      </div>
+    )
+  }
 }
 // export const message = () => {
 //   const messages = [

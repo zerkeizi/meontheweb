@@ -3,34 +3,20 @@ import SpeechBalloon from "../SpeechBalloon"
 import { useState } from "react"
 
 interface IMickey {
+  speaking: boolean
+  setSpeaking: Function
   speechOption: number
 }
 
-export default function Mickey({ speechOption }: IMickey) {
-  // const [selectedSpeech, setSelectedSpeech] = useState(0)
-
-  // if (speechOption) setSelectedSpeech(speechOption)
-
-  const speeches = [
-    {
-      id: 1,
-      title:"Hey!",
-      body: "did you know it's faster to spell it in full than it is to say 'dublio, dublio, dublio'?\\nbut I'm typing here, not speaking."
-    },
-    {
-      id: 2,
-      title:"Psst!",
-      body: "You are making too much noise."
-    }
-  ]
-
-  const speech = speeches.find(s => s.id == speechOption)
+export default function Mickey(props: IMickey) {
 
   return (
     <div className="frame">
-      { speech &&
-        (<SpeechBalloon title={speech.title} body={speech.body} speechOption={speechOption}/>)
-      }
+      <SpeechBalloon 
+        speechOption={props.speechOption} 
+        open={!!props.speaking}
+        onClose={props.setSpeaking}
+      />
       <Image 
         src="/rata.gif" 
         alt="" 
