@@ -1,6 +1,6 @@
-import Image from "next/image"
-import SpeechBalloon from "../SpeechBalloon"
-import { useState } from "react"
+import Image from "next/image";
+import SpeechBalloon from "../SpeechBalloon";
+import "./style.css";
 
 interface IMickey {
   speaking: boolean

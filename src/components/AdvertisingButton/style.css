@@ -1,0 +1,41 @@
+.ad {
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0px 0px;
+}
+
+.ad p {
+  margin: 0 0 8px 0;
+  color: aquamarine;
+}
+
+.ad__button {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  text-transform: uppercase;
+  align-self: center;
+  text-align: center;
+  color: #000;
+  border: 3px solid #070707;
+  border: 3px solid #070707;
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  background-color: #cccccc;
+}
+
+.ad__button span {
+  padding: 0 15px;
+}
+.ad__logo {
+  left: 0;
+  padding: 3px 8px;
+  border: 2px solid #070707;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  background-color: #aaa;
+}

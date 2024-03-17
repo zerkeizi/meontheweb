@@ -1,6 +1,7 @@
 import "./style.css";
 import Mickey from "../Mickey";
 import { useState } from "react";
+import AdvertisingButton from "../AdvertisingButton";
 
 export default function Cover() {
   const randomMessage = 'String'
@@ -22,10 +23,7 @@ export default function Cover() {
         <p id="banner-text">{ randomMessage }</p>
         <Mickey speaking={isSpeaking} setSpeaking={setSpeaking} speechOption={speechOption}/>
         <div className="banner-footer">
-          <p>this site has been optmized for:</p>
-          <div className="ad">
-            <span>You</span>
-          </div>
+          <AdvertisingButton/>
         </div>
       </div>
     </section>

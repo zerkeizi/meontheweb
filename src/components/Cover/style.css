@@ -28,28 +28,3 @@ section {
   font-weight: 600;
   color: powderblue;
 }
-
-.banner-footer {
-  color: #ccc;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 20px 0px 0px;
-}
-
-.banner-footer p {
-  margin: 0;  
-}
-
-.ad {
-  padding: 15px 80px;
-  text-transform: uppercase;
-  align-self: center;
-  text-align: center;
-  color: #000;
-  border: 3px solid #070707;
-  border: 3px solid #070707;
-  border-top: 3px solid #fff;
-  border-left: 3px solid #fff;
-  background-color: #cccccc;
-}

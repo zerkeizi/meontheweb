@@ -28,8 +28,8 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
   if (speech && open) {
     return (
       <div className="speech-balloon">
-      <button className="close" onClick={handleClose}></button>
-      <strong>{ speech.title }</strong>
+        <button className="close" onClick={handleClose}></button>
+        <strong>{ speech.title }</strong>
         { speech.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
       </div>
     )
