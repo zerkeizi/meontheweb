@@ -28,3 +28,10 @@ section {
   font-weight: 600;
   color: powderblue;
 }
+
+@media screen and (max-width: 720px) {
+  #banner {
+    background-color: rgba(34,34,34,.6);
+    padding: 20px 20px;
+  }
+}

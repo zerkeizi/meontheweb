@@ -42,11 +42,23 @@
 }
 
 .speech-balloon button {
-  background-color: red;
+  border: 0px solid #000;
   position: absolute;
   right: 8px;
   top: 8px;
   padding: 8px;
+  cursor: pointer;
+}
+
+.speech-balloon button::after {
+  content: '\D7';
+  position: absolute;
+  font-size: 1.67rem;
+  line-height: 1rem;
+  font-weight: 900;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
