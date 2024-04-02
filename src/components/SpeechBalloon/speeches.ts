@@ -12,7 +12,7 @@ export const speeches: ISpeech[] = [
   },
   {
     id: 2,
-    title:"Psst!",
-    body: "You are making too much noise."
+    title:"Shiu!",
+    body: "Tá fazendo muito barulho."
   }
 ]
