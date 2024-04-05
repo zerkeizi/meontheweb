@@ -3,6 +3,8 @@ section {
   display: flex;
   justify-content: center;
   font-family: initial;
+  cursor: url('/bat32.png'), auto;
+  /* cursor: url(cursor1.png), auto; */
 }
 
 #banner {
@@ -15,11 +17,11 @@ section {
   font-size: 32px;
 }
 
-#banner h2 span {
+#banner h2 .hidingo {
   display: none;
 }
 
-#banner:hover h2 span {
+#banner:hover h2 .hidingo {
   display: inline;
 }
 

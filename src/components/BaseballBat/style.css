@@ -1,0 +1,9 @@
+.bat-wrapper {
+  position: relative;
+  display: inline;
+}
+
+.bat-wrapper img {
+  position: absolute;
+  transform: translateY(-30%);
+}
