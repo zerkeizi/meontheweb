@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./style.css";
 
 type IHealthBar = {
@@ -8,28 +8,40 @@ type IHealthBar = {
 const HEALTH_POINTS = 1000
 export default function HealthBar({ hits }: IHealthBar) {
   const [classes, setClasses] = useState('health-bar')
-  const [barTimer, setBarTimer] = useState(0)
 
+  let timerRef = useRef(0)
+  let isCountingRef = useRef(false)
   useEffect(() => {
-    setBarTimer(0)
+    timerRef.current = 0
     setClasses('health-bar visible')
+    if (!isCountingRef.current) {
+      startCounter()
+    }
   }, [hits])
 
+  const startCounter = () => {
+    isCountingRef.current = true
+    counter()
+  }
 
-  // const myInterval = setInterval(() => {
-  //   console.log(barTimer)
-  //   if (barTimer < 3) {
-  //     setBarTimer(barTimer + 1)
-  //   }
+  const stopCounter = () => {
+    isCountingRef.current = false
+  }
 
-  //   if (barTimer == 3) {
-  //     setClasses('health-bar')
-  //   }
-  // }, 1000)
+  const counter = () => {
+    const intervalId = setInterval(() => {
+      if (timerRef.current <= 3) {
+        timerRef.current++
+      }
+
+      if (timerRef.current > 3) {
+        stopCounter()
+        setClasses('health-bar')
+        clearInterval(intervalId)
+      }
+    }, 1000)
+  }
   
-  // if (barTimer == 3)
-  //   clearInterval(myInterval)
-
   return (
     <div className={classes}></div>
   )
