@@ -1,13 +1,21 @@
 .health-bar {
   height: 30px;
   width: 200px;
-  background-color: lime;
+  background-color: red;
   position: absolute;
   top: -50px;
   left: 50%;
   opacity: 0;
   transform: translateX(-50%);
   transition: opacity .5s ease-in-out;
+}
+
+.health-bar span {
+  display: block;
+  position: absolute;
+  left: 0;
+  background-color: lime;
+  height: 100%;
 }
 
 

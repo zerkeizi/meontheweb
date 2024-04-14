@@ -8,10 +8,25 @@ interface IMickey {
   speaking: boolean
   setSpeaking: Function
   speechOption: number
+  baseballMode: boolean
 }
+
 
 export default function Mickey(props: IMickey) {
   const [hits, setHit] = useState(0)
+  const [damage, setDamage] = useState(0)
+  const [isAlive, setAlive] = useState(true)
+
+  const handleHit = () => {
+    setHit(hits+1)
+    if (props.baseballMode && damage < 1000) {
+      setDamage(damage+200)
+    }
+  }
+
+  const handleDeath = () => {
+    setAlive(false)
+  }
 
   return (
     <div className="frame">
@@ -20,14 +35,29 @@ export default function Mickey(props: IMickey) {
         open={!!props.speaking}
         onClose={props.setSpeaking}
       />
-      <HealthBar hits={hits}/>
-      <Image 
-        onClick={() => setHit(hits+1)}
-        src="/rata.gif" 
-        alt="" 
-        width={300}
-        height={300}
-      />
+      { isAlive && (<>
+          <HealthBar 
+            hits={hits} 
+            damage={damage}
+            handleDeath={handleDeath}
+          />
+          <Image 
+            onClick={() => handleHit()}
+            src="/rata.gif" 
+            alt="" 
+            width={300}
+            height={300}
+          /> 
+        </>)
+        || (
+          <Image 
+          src="/grave.png" 
+          alt="" 
+          width={150}
+          height={150}
+        />
+        )
+      }
     </div>
   )
 }

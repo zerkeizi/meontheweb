@@ -8,7 +8,7 @@ export default function Cover() {
   const randomMessage = 'String'
   const [isSpeaking, setSpeaking] = useState<boolean>(false)
   const [speechOption, setSpeechOption] = useState<number>(0)
-  const [isBatEquip, setBatEquip] = useState<boolean>(false)
+  const [isBaseballMode, setBaseballMode] = useState<boolean>(false)
 
   const handleSpeak = () => {
     setSpeaking(!isSpeaking)
@@ -16,19 +16,23 @@ export default function Cover() {
   }
 
   const handleEquip = () => {
-    setBatEquip(!isBatEquip)
+    setBaseballMode(!isBaseballMode)
   }
   
   return (
-    <section className={isBatEquip ? "equipped" : ""}>
+    <section className={isBaseballMode ? "equipped" : ""}>
       <div id="banner">
         <h2>
           <p>Hell<span className="hidingo">o</span>, world<BaseballBat equipFn={handleEquip} /></p>
           <p>Welcome to my page on the <em onClick={() => handleSpeak()}>WWW</em></p>
         </h2>
         <p id="banner-text">{ randomMessage }</p>
-        <Mickey speaking={isSpeaking} setSpeaking={setSpeaking} speechOption={speechOption}/>
-        { isBatEquip && <span style={{ color: '#fff' }}>Taco Equipado</span>}
+        <Mickey 
+          speaking={isSpeaking} 
+          setSpeaking={setSpeaking} 
+          speechOption={speechOption}
+          baseballMode={isBaseballMode}
+          />
         <div className="banner-footer">
           <AdvertisingButton/>
         </div>

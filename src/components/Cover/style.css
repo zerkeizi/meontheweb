@@ -3,8 +3,12 @@ section {
   display: flex;
   justify-content: center;
   font-family: initial;
+}
+
+
+section.equipped {
   cursor: url('/bat32.png'), auto;
-  /* cursor: url(cursor1.png), auto; */
+  /* cursor: url('/bat32.png'), auto; */
 }
 
 #banner {
@@ -17,11 +21,11 @@ section {
   font-size: 32px;
 }
 
-#banner h2 .hidingo {
+#banner:hover h2 .hidingo {
   display: none;
 }
 
-#banner:hover h2 .hidingo {
+#banner h2 .hidingo {
   display: inline;
 }
 
