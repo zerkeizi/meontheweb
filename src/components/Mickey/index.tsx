@@ -50,7 +50,7 @@ export default function Mickey(props: IMickey) {
           /> 
         </>)
         || (
-          <Image 
+        <Image
           src="/grave.png" 
           alt="" 
           width={150}
