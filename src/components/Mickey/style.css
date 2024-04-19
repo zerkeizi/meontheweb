@@ -1,3 +1,6 @@
 .frame {
   position: relative;
 }
+.frame img {
+  user-select: none;
+}

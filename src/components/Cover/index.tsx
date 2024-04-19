@@ -3,14 +3,16 @@ import Mickey from "../Mickey";
 import { useState } from "react";
 import AdvertisingButton from "../AdvertisingButton";
 import { BaseballBat } from "../BaseballBat";
+import Image from "next/image";
 
 export default function Cover() {
   const randomMessage = 'String'
   const [isSpeaking, setSpeaking] = useState<boolean>(false)
   const [speechOption, setSpeechOption] = useState<number>(0)
   const [isBaseballMode, setBaseballMode] = useState<boolean>(false)
-  const [mouseUp, setMouseUp] = useState<boolean>(false)
   const [mouseDown, setMouseDown] = useState<boolean>(false)
+  const [mouseReleased, setMouseReleased] = useState<boolean>(false)
+  const [pos, setPos] = useState<{ x: number, y: number}>({ x: 0, y:0})
 
   const handleSpeak = () => {
     setSpeaking(!isSpeaking)
@@ -21,21 +23,31 @@ export default function Cover() {
     setBaseballMode(!isBaseballMode)
   }
 
-  const handleMouseUp = () => {
-    console.log('unclicked!')
-    setMouseUp(!mouseUp)
+  const handleMouseReleased = () => {
+    if (baseballModeClass) {
+      console.log('Released!')
+
+      setMouseReleased(true)
+      console.log('1')
+      setTimeout(() => {
+        setMouseReleased(false)
+        setMouseDown(false)
+      }, 100)
+    }
   }
 
   const handleMouseDown = () => {
-    console.log('clicked!')
-    setMouseDown(!mouseDown)
+    if (baseballModeClass) {
+      console.log('Holding...')
+      setMouseDown(true)
+    }
   }
 
   const baseballModeClass = isBaseballMode ? 'equipped' : ''
-  const mouseStateClass = mouseUp ? 'mouse-up' : mouseDown ? 'mouse-down' : ''
+  const mouseStateClass = mouseReleased ? 'swing' : mouseDown ? 'holding' : ''
 
   return (
-    <section className={`${baseballModeClass} ${mouseStateClass}`} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+    <section className={`${baseballModeClass} ${mouseStateClass}`} onMouseDown={handleMouseDown} onMouseUp={handleMouseReleased}>
       <div id="banner">
         <h2>
           <p>Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }</p>

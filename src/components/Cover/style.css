@@ -5,10 +5,16 @@ section {
   font-family: initial;
 }
 
-
 section.equipped {
   cursor: url('/bat128_1.png'), auto;
-  /* cursor: url('/bat32.png'), auto; */
+}
+
+section.equipped.holding {
+  cursor: url('/bat128_2.png'), auto;
+}
+
+section.equipped.swing {
+  cursor: url('/bat128_swing.png'), auto;
 }
 
 #banner {

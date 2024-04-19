@@ -43,6 +43,7 @@ export default function Mickey(props: IMickey) {
           />
           <Image 
             onClick={() => handleHit()}
+            draggable="false"
             src="/rata.gif" 
             alt="" 
             width={300}
@@ -51,6 +52,8 @@ export default function Mickey(props: IMickey) {
         </>)
         || (
         <Image
+          loading="eager"
+          draggable="false"
           src="/grave.png" 
           alt="" 
           width={150}
