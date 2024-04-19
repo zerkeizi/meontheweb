@@ -3,20 +3,17 @@ import Mickey from "../Mickey";
 import { useState } from "react";
 import AdvertisingButton from "../AdvertisingButton";
 import { BaseballBat } from "../BaseballBat";
-import Image from "next/image";
 
 export default function Cover() {
-  const randomMessage = 'String'
   const [isSpeaking, setSpeaking] = useState<boolean>(false)
-  const [speechOption, setSpeechOption] = useState<number>(0)
+  const [speechOption, setSpeechOption] = useState<string>("")
   const [isBaseballMode, setBaseballMode] = useState<boolean>(false)
   const [mouseDown, setMouseDown] = useState<boolean>(false)
   const [mouseReleased, setMouseReleased] = useState<boolean>(false)
-  const [pos, setPos] = useState<{ x: number, y: number}>({ x: 0, y:0})
 
   const handleSpeak = () => {
-    setSpeaking(!isSpeaking)
-    setSpeechOption(1)
+    // setSpeaking(!isSpeaking)
+    setSpeechOption("001")
   }
 
   const handleEquip = () => {
@@ -25,10 +22,7 @@ export default function Cover() {
 
   const handleMouseReleased = () => {
     if (baseballModeClass) {
-      console.log('Released!')
-
       setMouseReleased(true)
-      console.log('1')
       setTimeout(() => {
         setMouseReleased(false)
         setMouseDown(false)
@@ -38,7 +32,6 @@ export default function Cover() {
 
   const handleMouseDown = () => {
     if (baseballModeClass) {
-      console.log('Holding...')
       setMouseDown(true)
     }
   }
@@ -53,11 +46,11 @@ export default function Cover() {
           <p>Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }</p>
           <p>Welcome to my page on the <em onClick={() => handleSpeak()}>WWW</em></p>
         </h2>
-        <p id="banner-text">{ randomMessage }</p>
         <Mickey 
           speaking={isSpeaking} 
           setSpeaking={setSpeaking} 
           speechOption={speechOption}
+          setSpeechOption={setSpeechOption}
           baseballMode={isBaseballMode}
           />
         <div className="banner-footer">

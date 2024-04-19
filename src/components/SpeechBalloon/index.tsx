@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import "./style.css";
-import { speeches } from "./speeches";
+import { ISpeech } from "./speeches";
 
 type ISpeechBalloon = {
-  speechOption: number
+  hits: number
+  speech: ISpeech | null
   open?: boolean
   onClose: Function
   fn?: Function
@@ -23,17 +24,23 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
     }
 
   }, [props.open])
+
+
+  // let speech: ISpeech | undefined
+  //   speech = speeches.find(s => s.id == props.speechOption.toString())
   
-  const speech = speeches.find(s => s.id == props.speechOption)
-  if (speech && open) {
-    return (
-      <div className="speech-balloon">
-        <button className="close" onClick={handleClose}></button>
-        <strong>{ speech.title }</strong>
-        { speech.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
-      </div>
-    )
-  }
+  // // console.log('speech:', props.speechOption)
+  // if (typeof speech == 'object') {
+  //   console.log('test')
+  //   setOpen(true)
+  // }
+  return props.speech && open && (
+    <div className="speech-balloon">
+      <button className="close" onClick={handleClose}></button>
+      <strong>{ props.speech.title }</strong>
+      { props.speech.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
+    </div>
+  )
 }
 /*
   const messages = [
