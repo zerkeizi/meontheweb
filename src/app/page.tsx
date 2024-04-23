@@ -16,7 +16,11 @@ export default function Home() {
           isOpen,
           isSpeaking,
           speechOption,
-          isBaseballMode
+          isBaseballMode,
+          setIsOpen,
+          setSpeaking,
+          setSpeechOption,
+          setBaseballMode
         }}>
         <Cover/>
       </MouseContext.Provider>
