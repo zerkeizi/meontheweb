@@ -1,19 +1,28 @@
 import "./style.css";
 import Mickey from "../Mickey";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AdvertisingButton from "../AdvertisingButton";
 import { BaseballBat } from "../BaseballBat";
+import { MouseContext } from "@/app/page";
 
 export default function Cover() {
-  const [isSpeaking, setSpeaking] = useState<boolean>(false)
   const [speechOption, setSpeechOption] = useState<string>("")
-  const [isBaseballMode, setBaseballMode] = useState<boolean>(false)
   const [mouseDown, setMouseDown] = useState<boolean>(false)
   const [mouseReleased, setMouseReleased] = useState<boolean>(false)
 
+
+  // # Context import
+  const context = useContext(MouseContext);
+  if (!context) {
+      throw new Error('Nada feito');
+  }
+  const { setBaseballMode, isBaseballMode, isSpeaking, setSpeaking, setSpeech } = context
+ 
+  // # Methods
   const handleSpeak = () => {
+    setSpeech("001")
     // setSpeaking(!isSpeaking)
-    setSpeechOption("001")
+    // setSpeechOption("001")
   }
 
   const handleEquip = () => {
@@ -47,11 +56,11 @@ export default function Cover() {
           <p>Welcome to my page on the <em onClick={() => handleSpeak()}>WWW</em></p>
         </h2>
         <Mickey 
-          speaking={isSpeaking} 
-          setSpeaking={setSpeaking} 
-          speechOption={speechOption}
-          setSpeechOption={setSpeechOption}
-          baseballMode={isBaseballMode}
+          // speaking={isSpeaking} 
+          // setSpeaking={setSpeaking} 
+          // speechOption={speechOption}
+          // setSpeechOption={setSpeechOption}
+          // baseballMode={isBaseballMode}
           />
         <div className="banner-footer">
           <AdvertisingButton/>

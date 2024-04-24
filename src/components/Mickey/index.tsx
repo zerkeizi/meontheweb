@@ -2,8 +2,9 @@ import Image from "next/image";
 import SpeechBalloon from "../SpeechBalloon";
 import HealthBar from "../HealthBar";
 import "./style.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ISpeech, speeches } from "./speeches";
+import { MouseContext } from "@/app/page";
 
 interface IMickey {
   speaking: boolean
@@ -13,12 +14,29 @@ interface IMickey {
   baseballMode: boolean
 }
 
-export default function Mickey(props: IMickey) {
+export default function Mickey() {
   const [hits, setHit] = useState(0)
   const [damage, setDamage] = useState(0)
   const [isAlive, setAlive] = useState(true)
-  const [speech, setSpeech] = useState<ISpeech | null>(null)
+  const [selectedSpeech, setSelectedSpeech] = useState<ISpeech | null>(null)
 
+  // # Context import
+  const context = useContext(MouseContext);
+  if (!context) {
+      throw new Error('Nada feito');
+  }
+  const { speech, setSpeech, isBaseballMode } = context
+
+  useEffect(() => {
+    const speechIndex = speeches.findIndex(s => s.id == speech)
+    if (speechIndex != -1) {
+      setSelectedSpeech(speeches[speechIndex])
+    }
+    setSpeech(null)
+  }, [speech, setSpeech])
+
+
+  // Controla o hit (click ou tacada)
   const handleHit = () => {
     const currentHit = hits + 1
     setHit(currentHit)
@@ -26,20 +44,11 @@ export default function Mickey(props: IMickey) {
     // Procura pela fala
     const speechIndex = speeches.findIndex(s => s.id == currentHit.toString())
     if (speechIndex != -1) {
-      setSpeech(speeches[speechIndex])
+      setSelectedSpeech(speeches[speechIndex])
     }
 
-    if (props.baseballMode && damage < 1000) {
+    if (isBaseballMode && damage < 1000) {
       setDamage(damage+200)
-    }
-  }
-
-  // setando uma fala
-  if (props.speechOption) {
-    console.log('changed')
-    const speechIndex = speeches.findIndex(s => s.id == props.speechOption)
-    if (speechIndex != -1) {
-      setSpeech(speeches[speechIndex])
     }
   }
 
@@ -47,13 +56,17 @@ export default function Mickey(props: IMickey) {
     setAlive(false)
   }
 
+  const handleClose = () => {
+    setSelectedSpeech(null)
+  }
+
   return (
     <div className="frame">
       <SpeechBalloon 
         hits={hits}
-        speech={speech} 
-        open={!!props.speaking}
-        onClose={props.setSpeaking}
+        speech={selectedSpeech} 
+        open={false}
+        onClose={handleClose}
       />
       { isAlive && (<>
           <HealthBar 
@@ -69,7 +82,7 @@ export default function Mickey(props: IMickey) {
             width={300}
             height={300}
           /> 
-          {hits} clicks taken
+          {/* {hits} clicks taken */}
         </>)
         || (
         <Image

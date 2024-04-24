@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { ISpeech } from "./speeches";
+import { MouseContext } from "@/app/page";
 
 type ISpeechBalloon = {
   hits: number
@@ -10,31 +11,21 @@ type ISpeechBalloon = {
   fn?: Function
 }
 
-
 export default function SpeechBalloon(props: ISpeechBalloon) {
-  const [open, setOpen] = useState(false)
+
+  // # Context import
+  // const context = useContext(MouseContext);
+  // if (!context) {
+  //     throw new Error('Nada feito');
+  // }
+  // const { setSpeech } = context
+
   const handleClose = () => {
-    setOpen(false)
-    props.onClose(false)
+    console.log('close')
+    props.onClose()
   }
 
-  useEffect(() => {
-    if (props.open) {
-      setOpen(props.open)
-    }
-
-  }, [props.open])
-
-
-  // let speech: ISpeech | undefined
-  //   speech = speeches.find(s => s.id == props.speechOption.toString())
-  
-  // // console.log('speech:', props.speechOption)
-  // if (typeof speech == 'object') {
-  //   console.log('test')
-  //   setOpen(true)
-  // }
-  return props.speech && open && (
+  return props.speech && (
     <div className="speech-balloon">
       <button className="close" onClick={handleClose}></button>
       <strong>{ props.speech.title }</strong>
@@ -42,11 +33,3 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
     </div>
   )
 }
-/*
-  const messages = [
-    "You can spend all the time you want looking at Mickey. He will stay here forever.",
-    "Penso, logo existo - Borboletas salpicadas de goiabada."
-    "Já é tarde - E eu ainda estarei aqui depois de vinte e quatro horas."
-    "Sem pressa - Aqui as coisas duram o tempo que for necessário.",
-  ]
-*/ 

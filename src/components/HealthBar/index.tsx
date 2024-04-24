@@ -21,7 +21,6 @@ export default function HealthBar({ hits, damage, handleDeath }: IHealthBar) {
   useEffect(() => {
     if (!firstRender.current) {
       timerRef.current = 0
-      console.log('opass')
       setClasses('health-bar visible')
       if (!isCountingRef.current) {
         startCounter()
