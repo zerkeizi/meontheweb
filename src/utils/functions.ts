@@ -33,11 +33,64 @@ const months = {
 };
 
 
+const emoji = [
+  "🎆",
+  "🎈",
+  "✨",
+  "🎃",
+  "🎊",
+  "🎉",
+  "🎁",
+  "🧧",
+  "👓",
+  "🥼",
+  "🦺",
+  "🎪",
+  "🎢",
+  "⚽",
+  "🏀",
+  "🎱",
+  "💍",
+  "💎",
+  "🎮",
+  "🥊",
+  "♥",
+  "🔔",
+  "📢",
+  "🪀",
+  "🎺",
+  "🎹",
+  "📻",
+  "🪓",
+  "🔨",
+  "🔒",
+  "⛏",
+  "⚒",
+  "💊",
+  "🏹",
+  "☎",
+  "💣",
+  "💾",
+  "📺",
+  "🎬",
+  "📽",
+  "📷",
+  "💡",
+  "⌛",
+  "⏰"
+]
+
 const isItLate = () => {
   const d = new Date()
   const currentHour = getHours(d)
   
   let speechObj: ISpeechMessage | null = null
+
+  speechObj = {
+      title:"Olá!",
+      body: "Bem-vinde ao mundo moderno. 🌼🐛",
+    }
+
   if (currentHour > 22 || currentHour < 4) {
     speechObj = {
       title:"Já é tarde!",
@@ -45,7 +98,7 @@ const isItLate = () => {
     }
   }
 
-  if (currentHour >= 20 && currentHour <= 21) {
+  if (currentHour >= 4 && currentHour <= 10) {
     speechObj = {
       title:"*Bocejo*",
       body: "Bom dia! Fiquei acordado esperando por você. Espero que tenha um lindo dia.",
@@ -68,9 +121,15 @@ const instagramDump = () => {
   return speechObj
 }
 
+const getRandomEmoji = () => {
+  const randomIndex = Math.floor(Math.random() * (emoji.length - 1));
+  return randomIndex > -1 ? emoji[randomIndex] : emoji[0]
+}
+
 const functions = {
   isItLate: isItLate,
-  instagramDump: instagramDump
+  instagramDump: instagramDump,
+  getRandomEmoji: getRandomEmoji
 }
 
 export default functions

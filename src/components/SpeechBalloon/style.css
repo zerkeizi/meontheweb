@@ -68,6 +68,6 @@
 
 @media screen and (max-width: 720px) {
   .speech-balloon {
-    min-width: auto;
+    min-width: 80vw;
   }
 }

@@ -20,16 +20,20 @@ const speeches = [
   },
   {
     id: "1",
-    message: {
-      title:"Olá!",
-      body: "Bem-vinde ao mundo moderno 🌼🐛.",
-    },
+    message: fn.isItLate,
   },
   {
-    id: "1",
+    id: "2",
     message: {
       title:"Sem pressa!",
       body: "Você pode passar o tempo que quiser falando comigo.\\nVou ficar aqui pra sempre. Mesmo que eu não tenha mais o que dizer e comece a me repetir.",
+    },
+  },
+  {
+    id: "3",
+    message: {
+      title:"Zero matches.",
+      body: "Talvez se eu colocasse uma foto com o Pluto...",
     },
   },
   {
@@ -40,19 +44,29 @@ const speeches = [
     },
   },
   {
-    id: "15",
+    id: "11",
     message: {
       title:"Penso, logo existo.",
       body: "Borboletas salpicadas de goiabada.",
     },
   },
   {
-    id: "2",
-    message: fn.isItLate,
+    id: "12",
+    message: {
+      title:"Eu tenho um segredo.",
+      body: "Meia-noite eu te conto.",
+    },
   },
   {
-    id: "17",
+    id: "13",
     message: fn.instagramDump,
+  },
+  {
+    id: "30",
+    message: {
+      title:"Ok.",
+      body: "Você esgotou meus diálogos.",
+    },
   },
 ]
 
@@ -82,8 +96,8 @@ export const getSpeech = (id: string | null): ISpeech | null => {
   const speechIndex = speeches.findIndex(s => s.id == id)
   if (speechIndex != -1) {
     const selectedSpeech = speeches[speechIndex]
-
     return processSpeech(selectedSpeech)
+  } else {
+    return {id, message: { title: `${id} cliques...`, body: fn.getRandomEmoji()} }
   }
-  return null
 }
