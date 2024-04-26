@@ -19,6 +19,13 @@ const speeches = [
     },
   },
   {
+    id: "002",
+    message: {
+      title:"Wow!",
+      body: "Look at him!!!",
+    },
+  },
+  {
     id: "1",
     message: fn.isItLate,
   },
@@ -66,6 +73,20 @@ const speeches = [
     message: {
       title:"Ok.",
       body: "Você esgotou meus diálogos.",
+    },
+  },
+  {
+    id: "100",
+    message: {
+      title:"Já chega!!!!!111",
+      body: "...",
+    },
+  },
+  {
+    id: "200",
+    message: {
+      title:"AAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      body: "!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
     },
   },
 ]

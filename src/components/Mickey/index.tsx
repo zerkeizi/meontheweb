@@ -25,7 +25,7 @@ export default function Mickey() {
   if (!context) {
       throw new Error('Nada feito');
   }
-  const { speechId, setSpeechId, isBaseballMode } = context
+  const { speechId, setSpeechId, isBaseballMode, setBaseballMode } = context
 
   useEffect(() => {
       const speech = getSpeech(speechId)
@@ -39,13 +39,16 @@ export default function Mickey() {
 
   // # Controla o hit (click ou tacada)
   const handleHit = () => {
-    const currentHit = hits + 1
-    setHit(currentHit)
+    if(!isBaseballMode) {
 
-    // Procura pela fala
-    const speech = getSpeech(currentHit.toString())
-    if (speech) {
-      setSelectedSpeech(speech)
+      const currentHit = hits + 1
+      setHit(currentHit)
+      
+      // Procura pela fala
+      const speech = getSpeech(currentHit.toString())
+      if (speech) {
+        setSelectedSpeech(speech)
+      }
     }
 
     if (isBaseballMode && damage < 1000) {
@@ -55,6 +58,7 @@ export default function Mickey() {
 
   const handleDeath = () => {
     setAlive(false)
+    setBaseballMode(false)
   }
 
   const handleClose = () => {

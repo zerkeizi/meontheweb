@@ -11,6 +11,7 @@
   transform: translate(50%, calc(-100% - 10px));
   min-width: max-content;
   max-width: 400px;
+  padding-right: 40px;
 }
 
 .speech-balloon::after {

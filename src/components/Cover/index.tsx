@@ -16,7 +16,7 @@ export default function Cover() {
   if (!context) {
       throw new Error('Nada feito');
   }
-  const { setBaseballMode, isBaseballMode, isSpeaking, setSpeaking, setSpeechId } = context
+  const { setBaseballMode, isBaseballMode, setSpeechId } = context
  
   // # Methods
   const handleSpeak = () => {
@@ -25,6 +25,7 @@ export default function Cover() {
 
   const handleEquip = () => {
     setBaseballMode(!isBaseballMode)
+    setSpeechId("002")
   }
 
   const handleMouseReleased = () => {
