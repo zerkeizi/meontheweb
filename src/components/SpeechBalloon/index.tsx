@@ -15,7 +15,6 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
   const balloonRef = useRef(null)
 
   const handleClose = () => {
-    console.log('close')
     props.onClose()
   }
 

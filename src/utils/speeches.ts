@@ -21,6 +21,13 @@ const speeches = [
   {
     id: "1",
     message: {
+      title:"Olá!",
+      body: "Bem-vinde ao mundo moderno 🌼🐛.",
+    },
+  },
+  {
+    id: "1",
+    message: {
       title:"Sem pressa!",
       body: "Você pode passar o tempo que quiser falando comigo.\\nVou ficar aqui pra sempre. Mesmo que eu não tenha mais o que dizer e comece a me repetir.",
     },

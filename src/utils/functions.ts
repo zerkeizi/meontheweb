@@ -40,15 +40,15 @@ const isItLate = () => {
   let speechObj: ISpeechMessage | null = null
   if (currentHour > 22 || currentHour < 4) {
     speechObj = {
-      title:"Já é tarde...",
-      body: "Mas eu ainda estarei aqui quando você acordar.",
+      title:"Já é tarde!",
+      body: "Vá descansar. Eu ainda estarei aqui amanhã quando você acordar.",
     }
   }
 
   if (currentHour >= 20 && currentHour <= 21) {
     speechObj = {
       title:"*Bocejo*",
-      body: "Bom dia pra você. Espero que tenha um dia lindo.",
+      body: "Bom dia! Fiquei acordado esperando por você. Espero que tenha um lindo dia.",
     }
   }
 
