@@ -62,7 +62,7 @@ const instagramDump = () => {
   const currentMonth = months.pt[currentMonthIndex].toLocaleLowerCase()
   speechObj = {
     title: "*Ansioso*",
-    body: `Mal posso esperar pra ver o seu dump de ${currentMonth} no insta.`
+    body: `Mal posso esperar pra ver as fotos do seu dump de ${currentMonth} no insta.`
   }
 
   return speechObj

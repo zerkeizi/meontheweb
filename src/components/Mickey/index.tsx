@@ -28,8 +28,6 @@ export default function Mickey() {
   const { speechId, setSpeechId, isBaseballMode } = context
 
   useEffect(() => {
-    // const speechIndex = speeches.findIndex(s => s.id == speech)
-    // if (speechIndex != -1) {
       const speech = getSpeech(speechId)
       if (speech) {
         setSelectedSpeech(speech)
@@ -39,7 +37,7 @@ export default function Mickey() {
   }, [speechId, setSpeechId])
 
 
-  // Controla o hit (click ou tacada)
+  // # Controla o hit (click ou tacada)
   const handleHit = () => {
     const currentHit = hits + 1
     setHit(currentHit)
@@ -85,7 +83,7 @@ export default function Mickey() {
             width={300}
             height={300}
           /> 
-          {hits} clicks taken
+          {/* {hits} clicks taken */}
         </>)
         || (
         <Image

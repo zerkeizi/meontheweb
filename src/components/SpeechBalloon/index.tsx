@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./style.css";
 import { ISpeech } from "@/utils/speeches";
 import { MouseContext } from "@/app/page";
@@ -13,20 +13,30 @@ type ISpeechBalloon = {
 
 export default function SpeechBalloon(props: ISpeechBalloon) {
 
-  // # Context import
-  // const context = useContext(MouseContext);
-  // if (!context) {
-  //     throw new Error('Nada feito');
-  // }
-  // const { setSpeech } = context
+  const balloonRef = useRef(null)
 
   const handleClose = () => {
     console.log('close')
     props.onClose()
   }
 
+  // Ao clicar fora do balão, fechar
+  const handleEvent = (event: MouseEvent) => {
+    if (balloonRef.current && !event.composedPath().includes(balloonRef.current)) {
+      handleClose()
+    }
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('click', handleEvent)
+    return () => {
+      // removendo evento após o click
+      document.body.removeEventListener('click', handleEvent)
+    }
+  }, [])
+
   return props.speech && (
-    <div className="speech-balloon">
+    <div className="speech-balloon" ref={balloonRef}>
       <button className="close" onClick={handleClose}></button>
       <strong>{ props.speech.message.title }</strong>
       { props.speech.message.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }

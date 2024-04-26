@@ -31,6 +31,7 @@
 .ad__button span {
   padding: 0 15px;
 }
+
 .ad__logo {
   left: 0;
   padding: 3px 8px;
@@ -38,4 +39,25 @@
   border-bottom: 2px solid #fff;
   border-right: 2px solid #fff;
   background-color: #aaa;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 26px;
+  overflow: hidden;
 }
+
+.ad__logo > img {
+  transition: transform .2s;
+}
+
+.ad__logo.danger > img {
+  transform: translateX(-38px);
+}
+
+/* .ad__hits {
+  height: 26px;
+  width: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

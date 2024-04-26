@@ -55,10 +55,9 @@ const speeches = [
  */
 const processSpeech = (str: any) => {
   if (str) {
-    console.log(typeof str.message == 'function')
     if (typeof str.message == 'function') {
       str.message = str.message()
-      return str ? str as ISpeech : null
+      return str.message ? str as ISpeech : null
     } else {
       return str
     }
