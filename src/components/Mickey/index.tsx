@@ -4,7 +4,7 @@ import HealthBar from "../HealthBar";
 import "./style.css";
 import { useContext, useEffect, useState } from "react";
 import { ISpeech, getSpeech } from "@/utils/speeches";
-import { MouseContext } from "@/app/page";
+import { MouseContext } from "@/context/MouseContext";
 
 interface IMickey {
   speaking: boolean

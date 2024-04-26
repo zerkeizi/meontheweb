@@ -1,7 +1,4 @@
-import { useState } from "react"
 import './style.css';
-import Image from "next/image";
-
 
 type IBaseballBat = {
   equipFn: Function

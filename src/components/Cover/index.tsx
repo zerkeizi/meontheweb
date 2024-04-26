@@ -3,7 +3,8 @@ import Mickey from "../Mickey";
 import { useContext, useState } from "react";
 import AdvertisingButton from "../AdvertisingButton";
 import { BaseballBat } from "../BaseballBat";
-import { MouseContext } from "@/app/page";
+import { MouseContext } from '@/context/MouseContext'
+
 
 export default function Cover() {
   const [mouseDown, setMouseDown] = useState<boolean>(false)

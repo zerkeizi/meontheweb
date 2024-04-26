@@ -1,7 +1,6 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./style.css";
 import { ISpeech } from "@/utils/speeches";
-import { MouseContext } from "@/app/page";
 
 type ISpeechBalloon = {
   hits: number
