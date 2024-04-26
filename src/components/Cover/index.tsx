@@ -16,11 +16,11 @@ export default function Cover() {
   if (!context) {
       throw new Error('Nada feito');
   }
-  const { setBaseballMode, isBaseballMode, isSpeaking, setSpeaking, setSpeech } = context
+  const { setBaseballMode, isBaseballMode, isSpeaking, setSpeaking, setSpeechId } = context
  
   // # Methods
   const handleSpeak = () => {
-    setSpeech("001")
+    setSpeechId("001")
     // setSpeaking(!isSpeaking)
     // setSpeechOption("001")
   }

@@ -2,6 +2,15 @@ export type ISpeech = {
   id: string
   title: string
   body: string
+  special?: boolean
+}
+
+const getTime = () => {
+  const t = true
+
+  if (t) {
+    return 
+  }
 }
 
 export const speeches: ISpeech[] = [
@@ -28,6 +37,28 @@ export const speeches: ISpeech[] = [
   {
     id: "17",
     title:"Já é tarde...",
-    body: "Mas eu ainda estarei aqui quando você acordar."
+    body: "Mas eu ainda estarei aqui quando você acordar."+getTime(),
+    special: true
   },
+]
+
+export const getSpeech = (id: string) => {
+  
+  const speechIndex = speeches.findIndex(s => s.id == id)
+  if (speechIndex != -1) {
+    const selectedSpeech = speeches[speechIndex]
+
+    if (selectedSpeech.special) {
+
+    }
+  }
+}
+
+
+
+const specialMap = [
+  {
+    id: "2",
+    fn: getTime()
+  }
 ]

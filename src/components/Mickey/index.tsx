@@ -3,7 +3,7 @@ import SpeechBalloon from "../SpeechBalloon";
 import HealthBar from "../HealthBar";
 import "./style.css";
 import { useContext, useEffect, useState } from "react";
-import { ISpeech, speeches } from "./speeches";
+import { ISpeech, getSpeech } from "@/utils/speeches";
 import { MouseContext } from "@/app/page";
 
 interface IMickey {
@@ -25,15 +25,18 @@ export default function Mickey() {
   if (!context) {
       throw new Error('Nada feito');
   }
-  const { speech, setSpeech, isBaseballMode } = context
+  const { speechId, setSpeechId, isBaseballMode } = context
 
   useEffect(() => {
-    const speechIndex = speeches.findIndex(s => s.id == speech)
-    if (speechIndex != -1) {
-      setSelectedSpeech(speeches[speechIndex])
-    }
-    setSpeech(null)
-  }, [speech, setSpeech])
+    // const speechIndex = speeches.findIndex(s => s.id == speech)
+    // if (speechIndex != -1) {
+      const speech = getSpeech(speechId)
+      if (speech) {
+        setSelectedSpeech(speech)
+      }
+    // }
+    setSpeechId(null)
+  }, [speechId, setSpeechId])
 
 
   // Controla o hit (click ou tacada)
@@ -42,9 +45,9 @@ export default function Mickey() {
     setHit(currentHit)
 
     // Procura pela fala
-    const speechIndex = speeches.findIndex(s => s.id == currentHit.toString())
-    if (speechIndex != -1) {
-      setSelectedSpeech(speeches[speechIndex])
+    const speech = getSpeech(currentHit.toString())
+    if (speech) {
+      setSelectedSpeech(speech)
     }
 
     if (isBaseballMode && damage < 1000) {
@@ -82,7 +85,7 @@ export default function Mickey() {
             width={300}
             height={300}
           /> 
-          {/* {hits} clicks taken */}
+          {hits} clicks taken
         </>)
         || (
         <Image

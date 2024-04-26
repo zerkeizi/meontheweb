@@ -5,11 +5,11 @@ import { ReactNode, createContext, useState } from "react";
 
 export interface MouseContextType {
   isSpeaking: boolean
-  speech: string | null
+  speechId: string | null
   speechOption: string
   isBaseballMode: boolean
   setSpeaking: React.Dispatch<React.SetStateAction<boolean>>;
-  setSpeech: React.Dispatch<React.SetStateAction<string | null>>;
+  setSpeechId: React.Dispatch<React.SetStateAction<string | null>>;
   setSpeechOption: React.Dispatch<React.SetStateAction<string>>;
   setBaseballMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -18,7 +18,7 @@ export const MouseContext = createContext<MouseContextType | undefined>(undefine
 
 export default function Home() {
   const [isSpeaking, setSpeaking] = useState<boolean>(false)
-  const [speech, setSpeech] = useState<string | null>(null)
+  const [speechId, setSpeechId] = useState<string | null>(null)
   const [speechOption, setSpeechOption] = useState<string>("")
   const [isBaseballMode, setBaseballMode] = useState<boolean>(false)
 
@@ -26,11 +26,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <MouseContext.Provider value={{ 
           isSpeaking,
-          speech,
+          speechId,
           speechOption,
           isBaseballMode,
           setSpeaking,
-          setSpeech,
+          setSpeechId,
           setSpeechOption,
           setBaseballMode
         }}>

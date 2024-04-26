@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import "./style.css";
-import { ISpeech } from "./speeches";
+import { ISpeech } from "@/utils/speeches";
 import { MouseContext } from "@/app/page";
 
 type ISpeechBalloon = {
@@ -28,8 +28,8 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
   return props.speech && (
     <div className="speech-balloon">
       <button className="close" onClick={handleClose}></button>
-      <strong>{ props.speech.title }</strong>
-      { props.speech.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
+      <strong>{ props.speech.message.title }</strong>
+      { props.speech.message.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
     </div>
   )
 }
