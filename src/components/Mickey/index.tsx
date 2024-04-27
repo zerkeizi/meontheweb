@@ -44,7 +44,7 @@ export default function Mickey() {
       }
     }
 
-    if (isBaseballMode && damage < 1000) {
+    if (isBaseballMode) {
       setDamage(damage+200)
     }
   }
