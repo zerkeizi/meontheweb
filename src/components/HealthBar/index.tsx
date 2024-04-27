@@ -2,14 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import "./style.css";
 
 type IHealthBar = {
-  hits: number
   damage: number
   handleDeath: Function
 }
 
 const BASE_HEALTH_POINTS = 1000
 const BASE_HIT = 200
-export default function HealthBar({ hits, damage, handleDeath }: IHealthBar) {
+export default function HealthBar({ damage, handleDeath }: IHealthBar) {
   const [classes, setClasses] = useState('health-bar')
   const [healthPoints, setHealthPoints] = useState(BASE_HEALTH_POINTS)
   const [healthPercentage, setHealthPercentage] = useState(100)

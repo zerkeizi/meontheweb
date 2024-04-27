@@ -1,6 +1,6 @@
 'use client'
 import Cover from "@/components/Cover";
-import { ReactNode, createContext, useState } from "react";
+import { useState } from "react";
 import { MouseContext } from '@/context/MouseContext'
 
 export default function Home() {

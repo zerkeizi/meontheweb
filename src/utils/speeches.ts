@@ -71,8 +71,15 @@ const speeches = [
   {
     id: "30",
     message: {
-      title:"Ok.",
-      body: "Você esgotou meus diálogos.",
+      title:"Hackearam meu e-mail",
+      body: "Agora lancei esse site tortaopraesquerdanaquelepiquenaomudanada.com.br",
+    },
+  },
+  {
+    id: "50",
+    message: {
+      title:"Ok",
+      body: "Não tenho mais nada por enquanto...",
     },
   },
   {
@@ -83,10 +90,17 @@ const speeches = [
     },
   },
   {
-    id: "200",
+    id: "150",
     message: {
       title:"AAAAAAAAAAAAAAAAAAAAAAAAAAAA",
       body: "!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    },
+  },
+  {
+    id: "200",
+    message: {
+      title:"🚨 Modo NPC burro ativado",
+      body: "Nenhum ovo de páscoa a partir daqui! 🥚🐰",
     },
   },
 ]

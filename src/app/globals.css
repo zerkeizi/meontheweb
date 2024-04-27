@@ -18,3 +18,16 @@ body {
   background-image: url('/space.gif');
   color: rgb(255, 0, 191);
 }
+
+.spin {
+  animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+  from {
+      transform: scale(1) rotate(0deg);
+  }
+  to {
+      transform: scale(1) rotate(360deg);
+  }
+}

@@ -6,13 +6,6 @@ import { useContext, useEffect, useState } from "react";
 import { ISpeech, getSpeech } from "@/utils/speeches";
 import { MouseContext } from "@/context/MouseContext";
 
-interface IMickey {
-  speaking: boolean
-  setSpeaking: Function
-  speechOption: string
-  setSpeechOption: Function
-  baseballMode: boolean
-}
 
 export default function Mickey() {
   const [hits, setHit] = useState(0)
@@ -75,7 +68,6 @@ export default function Mickey() {
       />
       { isAlive && (<>
           <HealthBar 
-            hits={hits} 
             damage={damage}
             handleDeath={handleDeath}
           />
