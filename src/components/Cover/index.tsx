@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import AdvertisingButton from "../AdvertisingButton";
 import { BaseballBat } from "../BaseballBat";
 import { MouseContext } from '@/context/MouseContext'
+import Ad from "../Ad";
 
 
 export default function Cover() {
@@ -59,6 +60,7 @@ export default function Cover() {
           <AdvertisingButton danger={baseballModeClass ? true : false} />
         </div>
       </div>
+      <Ad/>
     </section>
 )}
     

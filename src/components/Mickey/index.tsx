@@ -10,7 +10,6 @@ import { MouseContext } from "@/context/MouseContext";
 export default function Mickey() {
   const [hits, setHit] = useState(0)
   const [damage, setDamage] = useState(0)
-  const [isAlive, setAlive] = useState(true)
   const [selectedSpeech, setSelectedSpeech] = useState<ISpeech | null>(null)
 
   // # Context import
@@ -18,7 +17,7 @@ export default function Mickey() {
   if (!context) {
       throw new Error('Nada feito');
   }
-  const { speechId, setSpeechId, isBaseballMode, setBaseballMode } = context
+  const { speechId, setSpeechId, isBaseballMode, setBaseballMode, isAlive, setAlive } = context
 
   useEffect(() => {
       const speech = getSpeech(speechId)

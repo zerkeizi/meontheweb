@@ -1,0 +1,54 @@
+.husband-ad {
+  position: absolute;
+  background-color: #b3b3b3;
+  display: flex;
+  height: fit-content;
+  padding: 20px;
+  max-width: 500px;
+  right: 2vw;
+  top: 20px;
+  transform: translateY(-400px);
+  transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s;
+}
+
+.husband-ad.active {
+  transform: translateY(0);
+}
+
+.husband-ad .frame__image {
+  width: 370px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.frame__message {
+  padding: 0px 20px;
+  text-align: center;
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 500px;
+}
+
+.frame__message h6 {
+  font-size: 26px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.frame__message h6 p {
+  margin: 0;
+}
+
+.frame__message a {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.frame__message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+

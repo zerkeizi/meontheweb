@@ -8,6 +8,8 @@ export default function Home() {
   const [speechId, setSpeechId] = useState<string | null>(null)
   const [speechOption, setSpeechOption] = useState<string>("")
   const [isBaseballMode, setBaseballMode] = useState<boolean>(false)
+  const [isAlive, setAlive] = useState(true)
+
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -16,10 +18,12 @@ export default function Home() {
           speechId,
           speechOption,
           isBaseballMode,
+          isAlive,
           setSpeaking,
           setSpeechId,
           setSpeechOption,
-          setBaseballMode
+          setBaseballMode,
+          setAlive
         }}>
         <Cover/>
       </MouseContext.Provider>
