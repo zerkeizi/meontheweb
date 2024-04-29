@@ -2,7 +2,7 @@ import Image from "next/image";
 import SpeechBalloon from "../SpeechBalloon";
 import HealthBar from "../HealthBar";
 import "./style.css";
-import { useContext, useEffect, useState } from "react";
+import { MouseEventHandler, useContext, useEffect, useState } from "react";
 import { ISpeech, getSpeech } from "@/utils/speeches";
 import { MouseContext } from "@/context/MouseContext";
 
@@ -11,6 +11,7 @@ export default function Mickey() {
   const [hits, setHit] = useState(0)
   const [damage, setDamage] = useState(0)
   const [selectedSpeech, setSelectedSpeech] = useState<ISpeech | null>(null)
+  const [event, setEvent] = useState<React.MouseEvent | null>(null)
 
   // # Context import
   const context = useContext(MouseContext);
@@ -24,13 +25,12 @@ export default function Mickey() {
       if (speech) {
         setSelectedSpeech(speech)
       }
-    // }
     setSpeechId(null)
   }, [speechId, setSpeechId])
 
 
   // # Controla o hit (click ou tacada)
-  const handleHit = () => {
+  const handleHit = (e: React.MouseEvent) => {
     if(!isBaseballMode) {
 
       const currentHit = hits + 1
@@ -44,7 +44,8 @@ export default function Mickey() {
     }
 
     if (isBaseballMode) {
-      setDamage(damage+200)
+      setDamage(damage+1)
+      setEvent(e)
     }
   }
 
@@ -68,10 +69,11 @@ export default function Mickey() {
       { isAlive && (<>
           <HealthBar 
             damage={damage}
+            event={event}
             handleDeath={handleDeath}
           />
           <Image 
-            onClick={() => handleHit()}
+            onClick={(eventTarget) => handleHit(eventTarget)}
             draggable="false"
             src="/rata.gif" 
             alt="" 

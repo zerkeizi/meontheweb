@@ -1,5 +1,6 @@
 import { getHours, getMonth } from 'date-fns'
 import { ISpeechMessage } from './speeches'
+import { onomatopeias } from './constants'
 
 const months = {
   pt: [
@@ -125,11 +126,16 @@ const getRandomEmoji = () => {
   const randomIndex = Math.floor(Math.random() * (emoji.length - 1));
   return randomIndex > -1 ? emoji[randomIndex] : emoji[0]
 }
+const getRandomOnomatopeia = () => {
+  const randomIndex = Math.floor(Math.random() * (onomatopeias.length));
+  return randomIndex > -1 ? onomatopeias[randomIndex] : emoji[0]
+}
 
 const functions = {
   isItLate: isItLate,
   instagramDump: instagramDump,
-  getRandomEmoji: getRandomEmoji
+  getRandomEmoji: getRandomEmoji,
+  getRandomOnomatopeia: getRandomOnomatopeia
 }
 
 export default functions

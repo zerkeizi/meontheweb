@@ -29,7 +29,9 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
     document.body.addEventListener('click', handleEvent)
     return () => {
       // removendo evento após o click
-      document.body.removeEventListener('click', handleEvent)
+      if (props.hits <= 29) {
+        document.body.removeEventListener('click', handleEvent)
+      }
     }
   }, [])
 
