@@ -9,6 +9,7 @@
   top: 20px;
   transform: translateY(-400px);
   transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s;
+  box-sizing: border-box;
 }
 
 .husband-ad.active {
@@ -52,3 +53,18 @@
   justify-content: space-between;
 }
 
+@media screen and (max-width: 720px) {
+  .husband-ad {
+    max-width: unset;
+    right: unset;
+    margin: 0px 20px;
+    width: calc(100% - 30px);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .frame__message h6,
+  .frame__message a {
+    font-size: 22px;
+  }
+}

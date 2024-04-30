@@ -8,7 +8,7 @@ type IHealthBar = {
   handleDeath: Function
 }
 const BASE_HEALTH_POINTS = 1000
-const BASE_HIT = 1
+const BASE_HIT = 500
 export default function HealthBar({ event, damage, handleDeath }: IHealthBar) {
   const [classes, setClasses] = useState('health-bar')
   const [healthPoints, setHealthPoints] = useState(BASE_HEALTH_POINTS)
