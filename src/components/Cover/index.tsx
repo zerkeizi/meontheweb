@@ -5,6 +5,7 @@ import AdvertisingButton from "../AdvertisingButton";
 import { BaseballBat } from "../BaseballBat";
 import { MouseContext } from '@/context/MouseContext'
 import Ad from "../Ad";
+import Image from "next/image";
 
 
 export default function Cover() {
@@ -61,6 +62,19 @@ export default function Cover() {
         </div>
       </div>
       <Ad/>
+      {/* Mobile visualization */}
+      { baseballModeClass && (
+        <div className="equipped__mobile">
+          <Image
+            draggable="false"
+            src="/bat128_1.png"
+            alt="" 
+            width={128}
+            height={128}
+            sizes="(max-width: 480px) 50vw, (max-width: 768px) 50vw"
+          />
+        </div>)
+      }
     </section>
 )}
     

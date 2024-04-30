@@ -3,6 +3,8 @@ section {
   display: flex;
   justify-content: center;
   font-family: initial;
+  width: 100vw;
+  height: 100vh;
 }
 
 section.equipped {
@@ -21,6 +23,7 @@ section.equipped.swing {
   text-align: center;
   background-color: #222;
   padding: 20px 100px;
+  height: max-content;
 }
 
 #banner h2 {
@@ -41,9 +44,36 @@ section.equipped.swing {
   color: powderblue;
 }
 
+.equipped__mobile {
+  display: none;
+}
+
 @media screen and (max-width: 720px) {
   #banner {
     background-color: rgba(34,34,34,.6);
     padding: 20px 20px;
   }
+
+  .equipped__mobile {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    padding: 20px;
+    border: 2px dashed rgb(255, 0, 191);
+  }
+
+  .equipped__mobile::after {
+    display: block;
+    content: 'Equipado!';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    bottom: -30px;
+    text-transform: uppercase;
+    /* right: 50%; */
+  }
+
 }
