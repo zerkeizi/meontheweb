@@ -2,16 +2,22 @@ import Image from "next/image";
 import SpeechBalloon from "../SpeechBalloon";
 import HealthBar from "../HealthBar";
 import "./style.css";
-import { MouseEventHandler, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ISpeech, getSpeech } from "@/utils/speeches";
 import { MouseContext } from "@/context/MouseContext";
+import useSound from "use-sound"
 
+const SOUNDTRACK = './when_you_wish.mp3'
 
 export default function Mickey() {
   const [hits, setHit] = useState(0)
   const [damage, setDamage] = useState(0)
   const [selectedSpeech, setSelectedSpeech] = useState<ISpeech | null>(null)
   const [event, setEvent] = useState<React.MouseEvent | null>(null)
+  
+  // Sound
+  const [playSound, soundOptions] = useSound(SOUNDTRACK, {})
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // # Context import
   const context = useContext(MouseContext);
@@ -21,18 +27,31 @@ export default function Mickey() {
   const { speechId, setSpeechId, isBaseballMode, setBaseballMode, isAlive, setAlive } = context
 
   useEffect(() => {
-      const speech = getSpeech(speechId)
-      if (speech) {
-        setSelectedSpeech(speech)
-      }
+    const speech = getSpeech(speechId)
+    if (speech) {
+      setSelectedSpeech(speech)
+    }
     setSpeechId(null)
   }, [speechId, setSpeechId])
 
 
+  const handleSoundtrack = (bool: boolean) => {
+    console.log('soundOptions', soundOptions)
+    if (bool && !isPlaying && isAlive) {
+      setIsPlaying(true)
+      playSound()
+    }
+
+    if (!bool && isPlaying && isAlive) {
+      setIsPlaying(false)
+      soundOptions.stop()
+    }
+  }
+
   // # Controla o hit (click ou tacada)
   const handleHit = (e: React.MouseEvent) => {
+    handleSoundtrack(true)
     if(!isBaseballMode) {
-
       const currentHit = hits + 1
       setHit(currentHit)
       
@@ -52,6 +71,7 @@ export default function Mickey() {
   const handleDeath = () => {
     setAlive(false)
     setBaseballMode(false)
+    handleSoundtrack(false)
   }
 
   const handleClose = () => {

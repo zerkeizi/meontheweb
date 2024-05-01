@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
 import fn from '@/utils/functions'
+import useSound from "use-sound"
 
 type IHealthBar = {
   damage: number
@@ -8,11 +9,14 @@ type IHealthBar = {
   handleDeath: Function
 }
 const BASE_HEALTH_POINTS = 1000
-const BASE_HIT = 500
+const BASE_HIT = 150
+const bonkSfx = './baseball_bonk.mp3'
+
 export default function HealthBar({ event, damage, handleDeath }: IHealthBar) {
   const [classes, setClasses] = useState('health-bar')
   const [healthPoints, setHealthPoints] = useState(BASE_HEALTH_POINTS)
   const [healthPercentage, setHealthPercentage] = useState(100)
+  const [playSound] = useSound(bonkSfx)
 
   let timerRef = useRef(0)
   let isCountingRef = useRef(false)
@@ -33,6 +37,7 @@ export default function HealthBar({ event, damage, handleDeath }: IHealthBar) {
   const handleHit = () => {
     setHealthPoints(healthPoints-BASE_HIT)
     setHealthPercentage(healthPoints*100/BASE_HEALTH_POINTS)
+    playSound()
 
     if (event) {
 
@@ -42,7 +47,8 @@ export default function HealthBar({ event, damage, handleDeath }: IHealthBar) {
       }
       
       const s = fn.getRandomOnomatopeia()
-      // TODO ONOMATOPEIA QUE APARECE E VAI SUMINDO
+      // TODO:
+      // ONOMATOPEIA QUE APARECE E VAI SUMINDO
       // O SUNMIÇO NÃO É INTERROMPIDO POR OUTRAS ONOMATOPEIAS
     }
 
