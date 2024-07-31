@@ -36,7 +36,6 @@ export default function Mickey() {
 
 
   const handleSoundtrack = (bool: boolean) => {
-    console.log('soundOptions', soundOptions)
     if (bool && !isPlaying && isAlive) {
       setIsPlaying(true)
       playSound()
@@ -52,9 +51,15 @@ export default function Mickey() {
   const handleHit = (e: React.MouseEvent) => {
     handleSoundtrack(true)
     if(!isBaseballMode) {
+
+      if (selectedSpeech && selectedSpeech.persist) { // impede que cliques extras sobreponham uma mensagem que deve persistir em tela
+        return
+      }
+
       const currentHit = hits + 1
       setHit(currentHit)
       
+      console.log(selectedSpeech)
       // Procura pela fala
       const speech = getSpeech(currentHit.toString())
       if (speech) {

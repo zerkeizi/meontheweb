@@ -11,33 +11,13 @@ type ISpeechBalloon = {
 }
 
 export default function SpeechBalloon(props: ISpeechBalloon) {
-
-  const balloonRef = useRef(null)
-
   const handleClose = () => {
     props.onClose()
   }
 
-  // Ao clicar fora do balão, fechar
-  const handleEvent = (event: MouseEvent) => {
-    if (balloonRef.current && !event.composedPath().includes(balloonRef.current)) {
-      handleClose()
-    }
-  }
-
-  useEffect(() => {
-    document.body.addEventListener('click', handleEvent)
-    return () => {
-      // removendo evento após o click
-      if (props.hits <= 29) {
-        document.body.removeEventListener('click', handleEvent)
-      }
-    }
-  }, [])
-
   return props.speech && (
-    <div className="speech-balloon" ref={balloonRef}>
-      <button className="close" onClick={handleClose}></button>
+    <div className="speech-balloon" onClick={handleClose}>
+      <button className="close"></button>
       <strong>{ props.speech.message.title }</strong>
       { props.speech.message.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
     </div>

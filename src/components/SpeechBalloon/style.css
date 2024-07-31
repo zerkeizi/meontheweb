@@ -12,6 +12,7 @@
   min-width: max-content;
   max-width: 400px;
   padding-right: 40px;
+  z-index: 1;
 }
 
 .speech-balloon::after {

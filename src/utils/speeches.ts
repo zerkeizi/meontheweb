@@ -8,6 +8,7 @@ export type ISpeechMessage = {
 export type ISpeech = {
   id: string
   message: ISpeechMessage
+  persist?: boolean
 }
 
 const speeches = [
@@ -17,6 +18,7 @@ const speeches = [
       title:"World Wide Web!",
       body: "Sabia que é mais rápido falar assim do que pronunciar 'dablio, dablio, dablio'? Mas aqui a gente escreve, não fala.",
     },
+    persist: true
   },
   {
     id: "002",
@@ -24,17 +26,20 @@ const speeches = [
       title:"Wow!",
       body: "Look at him!!!",
     },
+    persist: false
   },
   {
     id: "1",
     message: fn.isItLate,
+    persist: true
   },
   {
     id: "2",
     message: {
       title:"Sem pressa!",
-      body: "Você pode passar o tempo que quiser falando comigo.\\nVou ficar aqui pra sempre. Mesmo que eu não tenha mais o que dizer e comece a me repetir.",
+      body: "Você pode passar o tempo que quiser falando comigo.\\nVou ficar aqui pra sempre. Mesmo que eu não tenha mais o que dizer e comece a repetir frases.",
     },
+    persist: true
   },
   {
     id: "3",
@@ -42,6 +47,7 @@ const speeches = [
       title:"Zero matches.",
       body: "Talvez se eu colocasse uma foto com o Pluto...",
     },
+    persist: true
   },
   {
     id: "4",
@@ -49,6 +55,7 @@ const speeches = [
       title:"Reconheça uma fita Disney legítima!",
       body: "Verifique a marca indelével na face superior,\n o selo da UBV na lombada e o holograma com o mickey feiticeiro.",
     },
+    persist: true
   },
   {
     id: "10",
@@ -56,6 +63,7 @@ const speeches = [
       title:"Psst!",
       body: "Tá fazendo muito barulho.",
     },
+    persist: true
   },
   {
     id: "11",
@@ -63,6 +71,7 @@ const speeches = [
       title:"Penso, logo existo.",
       body: "Borboletas salpicadas de goiabada.",
     },
+    persist: true
   },
   {
     id: "12",
@@ -70,17 +79,36 @@ const speeches = [
       title:"Eu tenho um segredo.",
       body: "Meia-noite eu te conto.",
     },
+    persist: true
   },
   {
     id: "13",
     message: fn.instagramDump,
+    persist: true
+  },
+  {
+    id: "17",
+    message: {
+      title:"You hit me 17 times",
+      body: "You're now the proud honor of a motorcar emoji 🚗",
+    },
+    persist: true
+  },
+  {
+    id: "20",
+    message: {
+      title:"Você viu meu taco de baseball?",
+      body: "Escondi ele aqui em algum lugar mas não consigo encontrar...",
+    },
+    persist: true
   },
   {
     id: "30",
     message: {
       title:"Hackearam meu e-mail",
-      body: "Agora lancei esse site tortaopraesquerdanaquelepiquenaomudanada.com.br",
+      body: "Agora lancei esse site tortaonaquelepiquenaomudanada e ponto com, ponto bê-érre",
     },
+    persist: true
   },
   {
     id: "50",
@@ -88,6 +116,31 @@ const speeches = [
       title:"Ok",
       body: "Não tenho mais nada por enquanto...",
     },
+    persist: true
+  },
+  {
+    id: "51",
+    message: {
+      title:"Ok!",
+      body: "Não tenho mais nada por enquanto...",
+    },
+    persist: true
+  },
+  {
+    id: "52",
+    message: {
+      title:"Ok...",
+      body: "Não tenho mais nada por enquanto...",
+    },
+    persist: true
+  },
+  {
+    id: "53",
+    message: {
+      title:"Vc não aprendeu nada com jogos?",
+      body: "Quando NPCs começam a repetir suas falas significa que você esgotou o diálogo completamente.",
+    },
+    persist: true
   },
   {
     id: "100",
@@ -95,6 +148,7 @@ const speeches = [
       title:"Já chega!!!!!111",
       body: "...",
     },
+    persist: true
   },
   {
     id: "150",
@@ -102,13 +156,15 @@ const speeches = [
       title:"AAAAAAAAAAAAAAAAAAAAAAAAAAAA",
       body: "!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
     },
+    persist: true
   },
   {
-    id: "200",
+    id: "1000",
     message: {
-      title:"🚨 Modo NPC burro ativado",
-      body: "Nenhum ovo de páscoa a partir daqui! 🥚🐰",
+      title:"Acredite em mim",
+      body: "Não há ovos de páscoa a partir daqui! 🥚🐰",
     },
+    persist: true
   },
 ]
 
@@ -129,17 +185,25 @@ const processSpeech = (str: any) => {
   }
 }
 
+// Trata e retorna o objeto com as informações da fala
 export const getSpeech = (id: string | null): ISpeech | null => {
   
-  if (!id) {
+  if (!id)
     return null
-  } 
 
+  const idNum = Number(id)
+  let obj
   const speechIndex = speeches.findIndex(s => s.id == id)
-  if (speechIndex != -1) {
+  if (speechIndex > -1) {
     const selectedSpeech = speeches[speechIndex]
-    return processSpeech(selectedSpeech)
+    obj = processSpeech(selectedSpeech)
+  } else if (id.includes('20')) {
+    obj = {id, message: { title: `Você tem certeza que não viu um taco de baseball por aí?`, body: 'Às vezes ele se esconde...'} }
+  } else if (id.includes('80')) {
+    obj = {id, message: { title: `Dê uma olhada em volta.`, body: 'Alguma coisa aqui deve se parecer com um taco de baseball'} }
   } else {
-    return {id, message: { title: `${id} cliques...`, body: fn.getRandomEmoji()} }
+    obj = {id, message: { title: `${id} cliques...`, body: fn.getRandomEmoji()} }
   }
+
+  return obj
 }
