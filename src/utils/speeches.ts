@@ -1,4 +1,5 @@
 import fn from './functions.ts'
+import { getHours, getMinutes } from 'date-fns'
 
 export type ISpeechMessage = {
   title: string
@@ -9,6 +10,7 @@ export type ISpeech = {
   id: string
   message: ISpeechMessage
   persist?: boolean
+  html?: boolean
 }
 
 const speeches = [
@@ -56,6 +58,15 @@ const speeches = [
       body: "Verifique a marca indelével na face superior,\n o selo da UBV na lombada e o holograma com o mickey feiticeiro.",
     },
     persist: true
+  },
+  {
+    id: "5",
+    message: {
+      title:"мiiickєyziи' 1ØØ иєuяozє _\\|/_",
+      body: `🎧 <a href="https://www.youtube.com/watch?v=y6120QOlsfU" target="_blank">kasino_-_cant_get_0ver.mp3</u>`,
+    },
+    persist: true,
+    html: true
   },
   {
     id: "10",
@@ -191,6 +202,11 @@ export const getSpeech = (id: string | null): ISpeech | null => {
   if (!id)
     return null
 
+  const now = new Date()
+  if ((getHours(now) + getMinutes(now)) == 0) {
+    console.log('O gato morreu...')
+  }
+  
   const idNum = Number(id)
   let obj
   const speechIndex = speeches.findIndex(s => s.id == id)

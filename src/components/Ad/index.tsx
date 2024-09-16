@@ -5,6 +5,7 @@ import { MouseContext } from "@/context/MouseContext";
 
 
 export default function Ad() {
+  const [isRendered, setRendered] = useState(false)
   const [isVisible, setVisible] = useState(false)
   const handleVisible = (bool: boolean) => {
     setVisible(bool)
@@ -19,11 +20,15 @@ export default function Ad() {
 
   useEffect(()=> {
     if (!isAlive) {
-      handleVisible(true)
+      setRendered(true)
+      setTimeout(() => {
+        setVisible(true)
+      }, 1000)
     }
   }, [isAlive])
 
   return (
+    isRendered &&
     <div className={`husband-ad ${isVisible ? "active" : ""}`}>
      <div className="frame__image">
       <Image 

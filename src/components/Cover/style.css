@@ -5,6 +5,8 @@ section {
   font-family: initial;
   width: 100vw;
   height: 100vh;
+  flex-direction: column;
+  align-items: center;
 }
 
 section.equipped {
@@ -21,13 +23,34 @@ section.equipped.swing {
 
 #banner {
   text-align: center;
-  background-color: #222;
+  background-color: #aeaeae;
   padding: 20px 100px;
   height: max-content;
+  max-width: max-content;
+  position: relative;
+  border: 6px solid #111;
+  border-top: 6px solid #fff;
+  border-left: 6px solid #fff;
+}
+
+#banner::before {
+  content: '';
+  height: calc(100% - 40px);
+  width: calc(100% - 46px);
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: 4px solid #222;
+  border-bottom: 4px solid #fff;
+  border-right: 4px solid #fff;
+  /* background-color: #aaa; */
+  background: #1e3e09;
 }
 
 #banner h2 {
   font-size: 32px;
+  position: relative;
 }
 
 #banner:hover h2 .hidingo {

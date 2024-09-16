@@ -57,9 +57,9 @@ export default function Cover() {
           <p>Welcome to my page on the <em onClick={() => handleSpeak()}>WWW</em></p>
         </h2>
         <Mickey/>
-        <div className="banner-footer">
-          <AdvertisingButton danger={baseballModeClass ? true : false} />
-        </div>
+      </div>
+      <div className="banner-footer">
+        <AdvertisingButton danger={baseballModeClass ? true : false} />
       </div>
       <Ad/>
       {/* Mobile visualization */}

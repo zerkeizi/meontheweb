@@ -19,7 +19,13 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
     <div className="speech-balloon" onClick={handleClose}>
       <button className="close"></button>
       <strong>{ props.speech.message.title }</strong>
-      { props.speech.message.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)) }
+      { 
+        (props.speech.message.body.includes('\\n') && props.speech.message.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)))
+        ||
+        (props.speech.html && <p dangerouslySetInnerHTML={{ __html: props.speech.message.body }}></p>)
+        ||
+        (<p>{props.speech.message.body}</p>)
+      }
     </div>
   )
 }
