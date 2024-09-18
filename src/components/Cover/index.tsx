@@ -21,8 +21,8 @@ export default function Cover() {
   const { setBaseballMode, isBaseballMode, setSpeechId } = context
  
   // # Methods
-  const handleSpeak = () => {
-    setSpeechId("001")
+  const handleSpeak = (speechId: string) => {
+    setSpeechId(speechId)
   }
 
   const handleEquip = () => {
@@ -51,12 +51,24 @@ export default function Cover() {
 
   return (
     <section className={`${baseballModeClass} ${mouseStateClass}`} onMouseDown={handleMouseDown} onMouseUp={handleMouseReleased}>
-      <div id="banner">
-        <h2>
-          <p>Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }</p>
-          <p>Welcome to my page on the <em onClick={() => handleSpeak()}>WWW</em></p>
-        </h2>
-        <Mickey/>
+      <div id="window">
+        <div className="window-top">
+          <div className="__title">
+            <span>Maicom.exe</span>
+          </div>
+          <div className="__controls">
+            <button className="minimize"/>
+            <button className="maximize"/>
+            <button className="close" onClick={() => handleSpeak("003")}/>
+          </div>
+        </div>
+        <div className="window-content">
+          <h2>
+            <p>Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }</p>
+            <p>Welcome to my page on the <em onClick={() => handleSpeak("001")}>WWW</em></p>
+          </h2>
+          <Mickey/>
+        </div>
       </div>
       <div className="banner-footer">
         <AdvertisingButton danger={baseballModeClass ? true : false} />

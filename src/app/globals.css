@@ -1,5 +1,4 @@
-/* 
-@tailwind base; 
+/* @tailwind base; 
 @tailwind components;
 @tailwind utilities; */
 
@@ -21,7 +20,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: url('/space.gif');
-  color: rgb(255, 0, 191);
+  color: #ee4dc6;
   font-family: 'Runescape UF' !important;
 }
 

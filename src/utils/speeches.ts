@@ -31,6 +31,14 @@ const speeches = [
     persist: false
   },
   {
+    id: "003",
+    message: {
+      title:"Há uma missão secreta no espaço não mapeado!",
+      body: "Não é um brinquedo que voa.",
+    },
+    persist: false
+  },
+  {
     id: "1",
     message: fn.isItLate,
     persist: true
