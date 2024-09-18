@@ -57,9 +57,9 @@ export default function Cover() {
             <span>Maicom.exe</span>
           </div>
           <div className="__controls">
-            <button className="minimize"/>
-            <button className="maximize"/>
-            <button className="close" onClick={() => handleSpeak("003")}/>
+            <button className="minimize" onClick={() => handleSpeak("003")}/>
+            <button className="maximize" onClick={() => handleSpeak("004")}/>
+            <button className="close" onClick={() => handleSpeak("005")}/>
           </div>
         </div>
         <div className="window-content">

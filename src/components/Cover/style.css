@@ -152,10 +152,6 @@ section.equipped.swing {
 }
 
 @media screen and (max-width: 720px) {
-  #window {
-    background-color: rgba(34,34,34,.6);
-    padding: 20px 20px;
-  }
 
   .equipped__mobile {
     display: block;

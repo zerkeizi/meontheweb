@@ -33,11 +33,28 @@ const speeches = [
   {
     id: "003",
     message: {
-      title:"Há uma missão secreta no espaço não mapeado!",
-      body: "Não é um brinquedo que voa.",
+      title: "Por que você quer me esconder?",
+      body: "Tem vergonha de quem eu sou?"
     },
     persist: false
   },
+  {
+    id: "004",
+    message: {
+      title: "Há uma missão secreta no espaço não mapeado!",
+      body: "Vamos lá!"
+    },
+    persist: false
+  },
+  {
+    id: "005",
+    message: {
+      title: "Eu só quero que saiba que",
+      body: "Embora você tenha tentado me eliminar, vingança não é uma ideia que cultivamos em meu planeta.",
+    },
+    persist: false
+  },
+ 
   {
     id: "1",
     message: fn.isItLate,
