@@ -21,50 +21,30 @@ section.equipped.swing {
   cursor: url('/bat128_swing.png'), auto;
 }
 
-#window {
-  position: relative;
-  /* text-align: center;
-  background-color: #aeaeae;
-  height: max-content;
-  max-width: max-content;
-  border: 6px solid #111;
-  border-top: 6px solid #ddd;
-  border-left: 6px solid #ddd; */
-}
-
-/* #window::before {
-  content: '';
-  height: calc(100% - 40px);
-  width: calc(100% - 26px);
-  display: block;
-  position: absolute;
-  top: 20px;
-  left: 10px;
-  border: 4px solid #222;
-  border-bottom: 4px solid #fff;
-  border-right: 4px solid #fff;
-  background-color: #aaa;
-  background: #1e3e09;
-} */
-
-#window h2 {
+section h2 {
   font-size: 32px;
   position: relative;
 }
 
-#window:hover h2 .hidingo {
+#window:hover section h2 .hidingo {
   display: none;
 }
 
-#window h2 .hidingo {
+section h2 .hidingo {
   display: inline;
 }
 
-#window h2 em {
+section h2 em {
   font-style: normal;
   font-weight: 600;
   color: powderblue;
   cursor: pointer;
+}
+
+#window {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
 }
 
 .window-top {
@@ -92,11 +72,19 @@ section.equipped.swing {
   text-align: center;
   background-color: #aeaeae;
   height: max-content;
-  max-width: max-content;
   padding: 0px 26px;
   border: 6px solid #111;
   border-top: 1px solid #ddd;
   border-left: 6px solid #ddd;
+}
+
+.window-content > span {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  color: #6f6c6c;
+  font-size: .8rem;
+  margin-left: 10px;
 }
 
 .window-top .__controls {
@@ -135,7 +123,7 @@ section.equipped.swing {
 
 .window-content::before {
   content: '';
-  height: calc(100% - 40px);
+  height: calc(100% - 52px);
   width: calc(100% - 26px);
   display: block;
   position: absolute;
@@ -144,10 +132,18 @@ section.equipped.swing {
   border: 4px solid #222;
   border-bottom: 4px solid #fff;
   border-right: 4px solid #fff;
-  /* background-color: #aaa; */
-  background: #1e3e09;
+  background: #0a9b49;
 }
 
+.window-content.space::before {
+  background-image: url('/space_00.gif');
+  background-blend-mode: lighten;
+  background-color: #22181f;
+}
+.window-content.emerald::before {
+  background-color: #05822a;
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d44e8e4c-db34-4361-8508-e7288d4cc10f/d5a0tlk-09fd7f7b-7d6d-4634-8e65-ddd74583f578.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q0NGU4ZTRjLWRiMzQtNDM2MS04NTA4LWU3Mjg4ZDRjYzEwZlwvZDVhMHRsay0wOWZkN2Y3Yi03ZDZkLTQ2MzQtOGU2NS1kZGQ3NDU4M2Y1NzguZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.c6SQy85sngwJU-uOYQWDoQFTFD6LvMlwSb_xZeJhR90');
+}
 
 .equipped__mobile {
   display: none;

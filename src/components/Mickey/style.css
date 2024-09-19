@@ -1,6 +1,7 @@
 .frame {
   position: relative;
-  bottom: 12px;
+  bottom: 24px;
+  margin-top: 10rem;
 }
 .frame img {
   user-select: none;

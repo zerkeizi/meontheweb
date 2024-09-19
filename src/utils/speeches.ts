@@ -33,8 +33,8 @@ const speeches = [
   {
     id: "003",
     message: {
-      title: "Por que você quer me esconder?",
-      body: "Tem vergonha de quem eu sou?"
+      title: "Eu só quero que saiba que",
+      body: "Embora você tenha tentado me eliminar, vingança não é uma ideia que cultivamos em meu planeta.",
     },
     persist: false
   },
@@ -49,8 +49,8 @@ const speeches = [
   {
     id: "005",
     message: {
-      title: "Eu só quero que saiba que",
-      body: "Embora você tenha tentado me eliminar, vingança não é uma ideia que cultivamos em meu planeta.",
+      title: "Thank you, Elon Musk!",
+      body: "For conveniently and surgically supporting the free speech of our elite."
     },
     persist: false
   },

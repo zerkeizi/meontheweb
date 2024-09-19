@@ -11,6 +11,7 @@ import Image from "next/image";
 export default function Cover() {
   const [mouseDown, setMouseDown] = useState<boolean>(false)
   const [mouseReleased, setMouseReleased] = useState<boolean>(false)
+  const [windowBackground, setWindowBackground] = useState<string>('')
 
 
   // # Context import
@@ -21,6 +22,11 @@ export default function Cover() {
   const { setBaseballMode, isBaseballMode, setSpeechId } = context
  
   // # Methods
+  const handleWindowControl = (speechId: string, backgroundString?: string) => {
+    handleSpeak(speechId)
+    setWindowBackground(backgroundString || "")
+  }
+  
   const handleSpeak = (speechId: string) => {
     setSpeechId(speechId)
   }
@@ -51,23 +57,24 @@ export default function Cover() {
 
   return (
     <section className={`${baseballModeClass} ${mouseStateClass}`} onMouseDown={handleMouseDown} onMouseUp={handleMouseReleased}>
+      <h2>
+        <p>Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }</p>
+        <p>Welcome to my page on the <em onClick={() => handleSpeak("001")}>WWW</em></p>
+      </h2>
       <div id="window">
         <div className="window-top">
           <div className="__title">
             <span>Maicom.exe</span>
           </div>
           <div className="__controls">
-            <button className="minimize" onClick={() => handleSpeak("003")}/>
-            <button className="maximize" onClick={() => handleSpeak("004")}/>
-            <button className="close" onClick={() => handleSpeak("005")}/>
+            <button className="minimize" onClick={() => handleWindowControl("003")}/>
+            <button className="maximize" onClick={() => handleWindowControl("004", "space")}/>
+            <button className="close" onClick={() => handleWindowControl("005", "emerald")}/>
           </div>
         </div>
-        <div className="window-content">
-          <h2>
-            <p>Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }</p>
-            <p>Welcome to my page on the <em onClick={() => handleSpeak("001")}>WWW</em></p>
-          </h2>
+        <div className={`window-content  ${windowBackground}`}>
           <Mickey/>
+          <span>conversion, software v7.0</span>
         </div>
       </div>
       <div className="banner-footer">
