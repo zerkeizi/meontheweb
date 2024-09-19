@@ -1,6 +1,12 @@
 import { useEffect, useRef } from "react";
 import "./style.css";
 import { ISpeech } from "@/utils/speeches";
+import { Play } from '@next/font/google'
+
+const geekFont = Play({
+  subsets: ['latin'],
+  weight: ['400', '700']
+})
 
 type ISpeechBalloon = {
   hits: number
@@ -16,7 +22,7 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
   }
 
   return props.speech && (
-    <div className="speech-balloon" onClick={handleClose}>
+    <div className={`speech-balloon ${geekFont.className}`} onClick={handleClose}>
       {/* <button className="close"></button> */}
       <strong>{ props.speech.message.title }</strong>
       { 

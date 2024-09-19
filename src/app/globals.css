@@ -8,11 +8,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@font-face {
-  font-family: 'Runescape UF'; /*a name to be used later*/
-  src: url('/runescape_uf.ttf'); /*URL to font*/
-}
-
 body {
   margin: 0;
   /* display: flex; */
@@ -20,7 +15,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: url('/space.gif');
-  color: #ee4dc6;
+  color: #ff6c6c;
   font-family: 'Runescape UF' !important;
 }
 

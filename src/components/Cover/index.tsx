@@ -6,7 +6,12 @@ import { BaseballBat } from "../BaseballBat";
 import { MouseContext } from '@/context/MouseContext'
 import Ad from "../Ad";
 import Image from "next/image";
+import { Press_Start_2P } from '@next/font/google'
 
+const header = Press_Start_2P({
+  subsets: ['latin'],
+  weight: ['400']
+})
 
 export default function Cover() {
   const [mouseDown, setMouseDown] = useState<boolean>(false)
@@ -57,9 +62,14 @@ export default function Cover() {
 
   return (
     <section className={`${baseballModeClass} ${mouseStateClass}`} onMouseDown={handleMouseDown} onMouseUp={handleMouseReleased}>
-      <h2>
-        <p>Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }</p>
-        <p>Welcome to my page on the <em onClick={() => handleSpeak("001")}>WWW</em></p>
+      <h1 className={header.className}>
+        Hell<span className="hidingo">o</span>, world{!isBaseballMode && <BaseballBat equipFn={handleEquip}/> }
+      </h1>
+      <h2 className={header.className}>
+        Welcome to my page on the <br/>
+      </h2>
+      <h2 className={header.className}>
+        <em onClick={() => handleSpeak("001")}>WWW</em>
       </h2>
       <div id="window">
         <div className="window-top">

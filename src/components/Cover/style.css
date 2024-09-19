@@ -2,7 +2,6 @@
 section {
   display: flex;
   justify-content: center;
-  font-family: initial;
   width: 100vw;
   height: 100vh;
   flex-direction: column;
@@ -21,33 +20,34 @@ section.equipped.swing {
   cursor: url('/bat128_swing.png'), auto;
 }
 
-section h2 {
-  display: flex;
+section h1, section h2 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-size: 32px;
+  font-size: 28px;
   position: relative;
-  margin-bottom: 50px;
+  text-align: center;
+  text-shadow: 1px 1px 10px #d93e3e;
+  margin: 0;
+  margin-bottom: 8px;
+
 }
 
-section h2 p {
-  margin: 0px;
+section h2 {
+  font-size: 20px;
+  /* margin-bottom: 50px; */
 }
 
-#window:hover section h2 .hidingo {
+/* #window:hover section h2 .hidingo {
   display: none;
-}
+} */
 
-section h2 .hidingo {
-  display: inline;
-}
-
-section h2 em {
+section em {
   font-style: normal;
   font-weight: 600;
   color: powderblue;
   cursor: pointer;
+  font-size: 30px;
 }
 
 #window {
