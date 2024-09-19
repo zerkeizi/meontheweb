@@ -17,7 +17,7 @@ export default function SpeechBalloon(props: ISpeechBalloon) {
 
   return props.speech && (
     <div className="speech-balloon" onClick={handleClose}>
-      <button className="close"></button>
+      {/* <button className="close"></button> */}
       <strong>{ props.speech.message.title }</strong>
       { 
         (props.speech.message.body.includes('\\n') && props.speech.message.body.split('\\n').map((t, i) => (<p key={i}>{t}</p>)))

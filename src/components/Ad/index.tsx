@@ -47,7 +47,7 @@ export default function Ad() {
         </h6>
         <p>Aparentemente tinhas o que era preciso para amassar a minha camundonga!</p>
       </div>
-      <a href="#" onClick={() => handleVisible(false)}>Sai daqui</a>
+      <a onClick={() => handleVisible(false)}>Sai daqui</a>
      </div>
     </div>
   )

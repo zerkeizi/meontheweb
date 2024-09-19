@@ -173,8 +173,8 @@ const speeches = [
   {
     id: "53",
     message: {
-      title:"Vc não aprendeu nada com jogos?",
-      body: "Quando NPCs começam a repetir suas falas significa que você esgotou o diálogo completamente.",
+      title:"Respira.",
+      body: "Quando as falas começam a se repetir significa que você esgotou o diálogo completamente.",
     },
     persist: true
   },
@@ -227,13 +227,14 @@ export const getSpeech = (id: string | null): ISpeech | null => {
   if (!id)
     return null
 
+  let obj
+
   const now = new Date()
   if ((getHours(now) + getMinutes(now)) == 0) {
-    console.log('O gato morreu...')
+    obj = {id, message: { title: `A curiosidade matou o gato`, body: ''} }
+    return obj 
   }
   
-  const idNum = Number(id)
-  let obj
   const speechIndex = speeches.findIndex(s => s.id == id)
   if (speechIndex > -1) {
     const selectedSpeech = speeches[speechIndex]

@@ -59,7 +59,6 @@ export default function Mickey() {
       const currentHit = hits + 1
       setHit(currentHit)
       
-      console.log(selectedSpeech)
       // Procura pela fala
       const speech = getSpeech(currentHit.toString())
       if (speech) {

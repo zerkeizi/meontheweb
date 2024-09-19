@@ -45,6 +45,12 @@
   text-transform: uppercase;
   font-weight: 600;
   font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 26px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  color: blue;
 }
 
 .frame__message {
@@ -66,5 +72,6 @@
   .frame__message h6,
   .frame__message a {
     font-size: 22px;
+    text-transform: uppercase;
   }
 }
